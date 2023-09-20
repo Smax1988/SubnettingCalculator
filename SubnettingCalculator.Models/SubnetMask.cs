@@ -1,23 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace SubnettingCalculator.Models;
 
-namespace SubnettingCalculator.Models
+public class SubnetMask : BaseAddress
 {
-    public class SubnetMask : BaseAddress
+    public int Suffix { get; private set; }
+
+    public SubnetMask() {}
+
+    public SubnetMask(byte[] octets)
     {
-        int Suffix { get; set; }
+        Octets = octets;
+        Suffix = GetSuffix(octets);
+    }
 
-        public SubnetMask(byte[] octets)
+    public SubnetMask(string octets)
+    {
+        Octets = OctetsStringToByteArray(octets);
+        Suffix = GetSuffix(Octets);
+    }
+
+    public int GetSuffix(byte[] octets)
+    {
+        string binaryOctets = string.Empty;
+
+        for (int i = 0; i < octets.Length; i++)
         {
-            Octets = octets;
+            binaryOctets += Convert.ToString(octets[i], 2);
         }
 
-        public SubnetMask(string octets)
+        int count = 0;
+        foreach (char character in binaryOctets)
         {
-            Octets = OctetsStringToByteArray(octets);
+            if (character == '1')
+                count++;
         }
+
+        return count;
     }
 }
