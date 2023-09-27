@@ -4,7 +4,7 @@ public abstract class BaseAddress
 {
     public byte[] Octets { get; protected set; } = new byte[4];
 
-    protected byte[] OctetsStringToByteArray(string octets)
+    protected static byte[] OctetsStringToByteArray(string octets)
     {
         string[] octetsStrings = octets.Split('.');
         byte[] result = new byte[4];

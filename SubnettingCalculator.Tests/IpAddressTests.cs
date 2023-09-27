@@ -16,8 +16,6 @@ public class IpAddressTests
     {
         IpAddress ipAdress = new IpAddress(inputIpAddress);
 
-        byte[] bytes = new byte[] { 192, 168, 10, 10 };
-
         Assert.That(ipAdress.Octets, Is.EqualTo(expected));
     }
 
