@@ -55,13 +55,14 @@ public class SubnetMask : BaseAddress
 
     public static byte[] ConvertCidrSuffixToOctets(int cidrSuffix)
     {
+        // Throw ArgumentOutOfRangeException for invalid suffix
         if (cidrSuffix < 1 || cidrSuffix > 30)
             throw new ArgumentOutOfRangeException(nameof(cidrSuffix), "Invalid Suffix. Suffix must be greater than 0 and smaller than 31.");
 
         // construct the binary string:
         string binarySuffix = string.Empty;
 
-        // as many '1's as cidrSuffix
+        // add as many '1's as cidrSuffix
         for (int i = 0; i < cidrSuffix; i++)
         {
             binarySuffix += "1";
@@ -75,7 +76,7 @@ public class SubnetMask : BaseAddress
         // convert binary string to byte[]:
         byte[] result = new byte[4];
 
-        for(int i = 0; i < 4; ++i)
+        for(int i = 0; i < 4; i++)
         {
             result[i] = Convert.ToByte(binarySuffix.Substring(8 * i, 8), 2);
         }
