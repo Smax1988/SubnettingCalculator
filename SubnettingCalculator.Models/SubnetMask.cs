@@ -28,6 +28,7 @@ public class SubnetMask : BaseAddress
 
     public static int GetCidrSuffix(byte[] octets)
     {
+        // convert byte[] to binary string
         string binaryOctets = string.Empty;
 
         for (int i = 0; i < octets.Length; i++)
@@ -35,10 +36,13 @@ public class SubnetMask : BaseAddress
             binaryOctets += Convert.ToString(octets[i], 2);
         }
 
+        // Throw ArgumentOutOfRangeException if input Octets are invalid
         string pattern = @"01";
         MatchCollection matches = Regex.Matches(binaryOctets, pattern);
+        if (matches.Count > 0)
+            throw new ArgumentOutOfRangeException();
 
-
+        // Count '1's
         int count = 0;
         foreach (char character in binaryOctets)
         {
@@ -49,8 +53,11 @@ public class SubnetMask : BaseAddress
         return count;
     }
 
-    public byte[] ConvertCidrSuffixToOctets(int cidrSuffix)
+    public static byte[] ConvertCidrSuffixToOctets(int cidrSuffix)
     {
+        if (cidrSuffix < 1 || cidrSuffix > 30)
+            throw new ArgumentOutOfRangeException(nameof(cidrSuffix), "Invalid Suffix. Suffix must be greater than 0 and smaller than 31.");
+
         // construct the binary string:
         string binarySuffix = string.Empty;
 
