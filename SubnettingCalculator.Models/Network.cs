@@ -25,15 +25,9 @@ namespace SubnettingCalculator.Models
             NetworkId = ipAddress & subnetMask;
             SubnetMask = subnetMask;
             BroadCastAddress = NetworkId | ~SubnetMask;
-            //FirstHost = CalcFirstHost(NetworkId);
-            //LastHost = CalcLastHost(BroadCastAddress);
-            //NumberOfHosts = CalcNumberOfHosts();
-
-        }
-
-        private int CalcNumberOfHosts()
-        {
-            throw new NotImplementedException();
+            FirstHost = NetworkId + 1;
+            LastHost = BroadCastAddress - 1;
+            NumberOfHosts = (int)(Math.Pow(2, 32 - SubnetMask.CidrSuffix) - 2);
         }
     }
 }

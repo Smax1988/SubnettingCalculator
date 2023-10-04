@@ -23,6 +23,7 @@ namespace SubnettingCalculator.Models.Tests
         [TestCase(new byte[] { 255, 254, 255, 0 })]
         [TestCase(new byte[] { 254, 255, 255, 0 })]
         [TestCase(new byte[] { 250, 245, 255, 0 })]
+        [TestCase(new byte[] { 250, 64, 0, 0 })]
         public void GetCidrSuffix_ThrowsArgumentOutOfRangeException(byte[] inputOctet)
         {
             Assert.Throws<ArgumentOutOfRangeException>(() => SubnetMask.GetCidrSuffix(inputOctet));

@@ -11,15 +11,19 @@ public class SubnetMask : BaseAddress
     public SubnetMask(byte[] octets)
     {
         Octets = octets;
-        if (CidrSuffix == 0)
-            CidrSuffix = GetCidrSuffix(octets);
+        CidrSuffix = GetCidrSuffix(octets);
+    }
+
+    public SubnetMask(byte[] octets, int cidrSuffix)
+    {
+        Octets = octets;
+        CidrSuffix = cidrSuffix;
     }
 
     public SubnetMask(string octets)
     {
         Octets = OctetsStringToByteArray(octets);
-        if (CidrSuffix == 0)
-            CidrSuffix = GetCidrSuffix(Octets);
+        CidrSuffix = GetCidrSuffix(Octets);
     }
 
     public SubnetMask(int cidrSuffix)
@@ -94,8 +98,6 @@ public class SubnetMask : BaseAddress
         {
             result[i] = (byte)~snm.Octets[i];
         }
-        SubnetMask wildCard = new SubnetMask(result);
-        wildCard.CidrSuffix = -1;
-        return wildCard;
+        return new SubnetMask(result, 0);
     }
 }
