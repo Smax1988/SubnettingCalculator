@@ -8,17 +8,17 @@ namespace SubnettingCalculator.Models
 {
     public class Network
     {
-        public IpAddress NetworkId { get; set; }
+        public IpAddress NetworkId { get; init; }
 
-        public SubnetMask SubnetMask { get; set; }
+        public SubnetMask SubnetMask { get; init; }
 
-        public IpAddress FirstHost { get; set; }
+        public IpAddress FirstHost { get; init; }
 
-        public IpAddress LastHost { get; set; }
+        public IpAddress LastHost { get; init; }
 
-        public IpAddress BroadCastAddress { get; set; }
+        public IpAddress BroadCastAddress { get; init; }
 
-        public int NumberOfHosts {  get; set; }
+        public int NumberOfHosts {  get; init; }
 
         public Network(IpAddress ipAddress, SubnetMask subnetMask)
         {
