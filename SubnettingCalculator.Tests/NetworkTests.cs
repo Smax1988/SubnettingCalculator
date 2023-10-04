@@ -9,10 +9,14 @@ namespace SubnettingCalculator.Models.Tests
     [TestFixture]
     public class NetworkTests
     {
-        [TestCase(new byte[] { 192, 168, 0, 1 }, new byte[] { 255, 255, 255, 0 })]
-        public void Should_CalcNetId(byte[] ipAddress, byte[] subnetMask)
+        [TestCase(new byte[] { 192, 168, 0, 1 }, new byte[] { 255, 255, 255, 0 }, new byte[] { 192, 168, 0, 0 })]
+        public void NetworkId_IsCorrec(byte[] ipAddress, byte[] subnetMask, byte[] expected)
         {
-            var result = 
+            IpAddress ip = new IpAddress(ipAddress);
+            SubnetMask snm = new SubnetMask(subnetMask);
+            Network network = new Network(ip, snm);
+
+            Assert.That(expected, Is.EqualTo(network.NetworkId.Octets));
         }
     }
 }
