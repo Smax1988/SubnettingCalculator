@@ -13,7 +13,7 @@ namespace SubnettingCalculator.Models.Tests
         [TestCase(new byte[] { 172, 30, 50, 1 }, new byte[] { 255, 0, 0, 0 }, new byte[] { 172, 0, 0, 0 })]
         [TestCase(new byte[] { 85, 45, 10, 0 }, new byte[] { 255, 255, 255, 240 }, new byte[] { 85, 45, 10, 0 })]
 
-        public void Network_HasCorrectNetId(byte[] ipAddress, byte[] subnetMask, byte[] expected)
+        public void NetIdTest(byte[] ipAddress, byte[] subnetMask, byte[] expected)
         {
             IpAddress ip = new IpAddress(ipAddress);
             SubnetMask snm = new SubnetMask(subnetMask);
@@ -25,7 +25,7 @@ namespace SubnettingCalculator.Models.Tests
         [TestCase(new byte[] { 192, 168, 0, 1 }, new byte[] { 255, 255, 255, 0 }, new byte[] { 255, 255, 255, 0 })]
         [TestCase(new byte[] { 172, 30, 50, 1 }, new byte[] { 255, 0, 0, 0 }, new byte[] { 255, 0, 0, 0 })]
         [TestCase(new byte[] { 85, 45, 10, 0 }, new byte[] { 255, 255, 255, 240 }, new byte[] { 255, 255, 255, 240 })]
-        public void Network_HasCorrectSubnetMask(byte[] ipAddress, byte[] subnetMask, byte[] expected)
+        public void SubnetMaskTest(byte[] ipAddress, byte[] subnetMask, byte[] expected)
         {
             IpAddress ip = new IpAddress(ipAddress);
             SubnetMask snm = new SubnetMask(subnetMask);
@@ -37,7 +37,7 @@ namespace SubnettingCalculator.Models.Tests
         [TestCase(new byte[] { 192, 168, 0, 1 }, new byte[] { 255, 255, 255, 0 }, new byte[] { 192, 168, 0, 255 })]
         [TestCase(new byte[] { 172, 30, 50, 1 }, new byte[] { 255, 0, 0, 0 }, new byte[] { 172, 255, 255, 255 })]
         [TestCase(new byte[] { 85, 45, 10, 0 }, new byte[] { 255, 255, 255, 240 }, new byte[] { 85, 45, 10, 15 })]
-        public void Network_HasCorrectBroadCastAddress(byte[] ipAddress, byte[] subnetMask, byte[] expected)
+        public void BroadCastAddressTest(byte[] ipAddress, byte[] subnetMask, byte[] expected)
         {
             IpAddress ip = new IpAddress(ipAddress);
             SubnetMask snm = new SubnetMask(subnetMask);
@@ -49,7 +49,7 @@ namespace SubnettingCalculator.Models.Tests
         [TestCase(new byte[] { 192, 168, 0, 1 }, new byte[] { 255, 255, 255, 0 }, new byte[] { 192, 168, 0, 1 })]
         [TestCase(new byte[] { 172, 30, 50, 1 }, new byte[] { 255, 0, 0, 0 }, new byte[] { 172, 0, 0, 1 })]
         [TestCase(new byte[] { 85, 45, 10, 0 }, new byte[] { 255, 255, 255, 240 }, new byte[] { 85, 45, 10, 1 })]
-        public void Network_HasCorrectFirstHost(byte[] ipAddress, byte[] subnetMask, byte[] expected)
+        public void FirstHostTest(byte[] ipAddress, byte[] subnetMask, byte[] expected)
         {
             IpAddress ip = new IpAddress(ipAddress);
             SubnetMask snm = new SubnetMask(subnetMask);
@@ -61,7 +61,7 @@ namespace SubnettingCalculator.Models.Tests
         [TestCase(new byte[] { 192, 168, 0, 1 }, new byte[] { 255, 255, 255, 0 }, new byte[] { 192, 168, 0, 254 })]
         [TestCase(new byte[] { 172, 30, 50, 1 }, new byte[] { 255, 0, 0, 0 }, new byte[] { 172, 255, 255, 254 })]
         [TestCase(new byte[] { 85, 45, 10, 0 }, new byte[] { 255, 255, 255, 240 }, new byte[] { 85, 45, 10, 14 })]
-        public void Network_HasCorrectLastHost(byte[] ipAddress, byte[] subnetMask, byte[] expected)
+        public void LastHostTest(byte[] ipAddress, byte[] subnetMask, byte[] expected)
         {
             IpAddress ip = new IpAddress(ipAddress);
             SubnetMask snm = new SubnetMask(subnetMask);
@@ -73,7 +73,7 @@ namespace SubnettingCalculator.Models.Tests
         [TestCase(new byte[] { 192, 168, 0, 1 }, new byte[] { 255, 255, 255, 0 }, 254)]
         [TestCase(new byte[] { 172, 30, 50, 1 }, new byte[] { 255, 0, 0, 0 }, 16777214)]
         [TestCase(new byte[] { 85, 45, 10, 0 }, new byte[] { 255, 255, 255, 240 }, 14)]
-        public void Network_HasCorrectNumberOfHosts(byte[] ipAddress, byte[] subnetMask, int expected)
+        public void NumberOfHostsTest(byte[] ipAddress, byte[] subnetMask, int expected)
         {
             IpAddress ip = new IpAddress(ipAddress);
             SubnetMask snm = new SubnetMask(subnetMask);

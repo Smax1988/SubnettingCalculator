@@ -8,9 +8,11 @@ namespace SubnettingCalculator.Models
 {
     public class Network
     {
-        public IpAddress NetworkId { get; init; }
+        public IpAddress IpAddress { get; init; }
 
         public SubnetMask SubnetMask { get; init; }
+
+        public IpAddress NetworkId { get; init; }
 
         public IpAddress FirstHost { get; init; }
 
@@ -22,8 +24,9 @@ namespace SubnettingCalculator.Models
 
         public Network(IpAddress ipAddress, SubnetMask subnetMask)
         {
-            NetworkId = ipAddress & subnetMask;
+            IpAddress = ipAddress;
             SubnetMask = subnetMask;
+            NetworkId = ipAddress & subnetMask;
             BroadCastAddress = NetworkId | ~SubnetMask;
             FirstHost = NetworkId + 1;
             LastHost = BroadCastAddress - 1;
