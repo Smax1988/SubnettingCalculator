@@ -6,10 +6,13 @@
              xmlns:local="clr-namespace:SubnettingCalculator.View" xmlns:viewmodels="clr-namespace:SubnettingCalculator.ViewModels;assembly=SubnettingCalculator.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:IpCalculatorViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
+    <Grid Background="White" >
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="40" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -21,60 +24,141 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
+        <!-- Headline -->
         <TextBlock Text="IPv4"
                    Foreground="Black"
                    FontSize="34"
                    Grid.Row="0"
-                   Grid.Column="0"
+                   Grid.Column="1"
                    Grid.ColumnSpan="2"
                    Grid.RowSpan="2"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontWeight="Bold"/>
-
-        <TextBox Text="{Binding Network.IpAddress}"
+        
+        <!-- IP-Address -->
+        <TextBlock Text="IP-Adresse:"
                  Grid.Row="2"
-                 Grid.Column="2"
+                 Grid.Column="1"
                  Foreground="Black"
-                 FontSize="28" />
-        <TextBox Text="{Binding Network.SubnetMask}" 
+                 FontSize="28" 
+                 Margin="2"/>
+        <Grid Grid.Row="2"
+              Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <TextBox Text="{Binding Network.IpAddress}"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     Foreground="Black"
+                     FontSize="28" 
+                     Margin="2"/>
+            <TextBlock Text="/" 
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Foreground="Black"
+                       FontSize="28"
+                       Margin="2"/>
+            <TextBox Text="{Binding Network.SubnetMask.CidrSuffix}"
+                     Grid.Row="0"
+                     Grid.Column="2"
+                     Foreground="Black"
+                     FontSize="28" 
+                     Margin="2"/>
+        </Grid>
+        
+        <!-- Subnetmask -->
+            <TextBlock Text="Subnetzmaske:" 
                  Grid.Row="3"
                  Grid.Column="1"
                  Foreground="Black"
-                 FontSize="28" />
-        
-        <TextBlock Text="{Binding Network.BroadCastAddress}" 
+                 FontSize="28"
+                 Margin="2" />
+            <TextBox Text="{Binding Network.SubnetMask}" 
+                 Grid.Row="3"
+                 Grid.Column="2"
+                 Foreground="Black"
+                 FontSize="28"
+                 Margin="2" />
+          
+        <!-- Broadcast Address -->
+        <TextBlock Text="Broadcast:" 
                    Grid.Row="4"
                    Grid.Column="1"
                    Foreground="Black"
-                   FontSize="28" />
-        
-        <TextBlock Text="{Binding Network.FirstHost}"
+                   FontSize="28"
+                   Margin="2" />
+
+        <TextBlock Text="{Binding Network.BroadCastAddress}" 
+                   Grid.Row="4"
+                   Grid.Column="2"
+                   Foreground="Black"
+                   FontSize="28"
+                   Margin="2" />
+
+        <!-- First Host -->
+        <TextBlock Text="Erster Host:"
                    Grid.Row="5"
                    Grid.Column="1"
                    Foreground="Black"
-                   FontSize="28"/>
+                   FontSize="28"
+                   Margin="2" />
+        <TextBlock Text="{Binding Network.FirstHost}"
+                   Grid.Row="5"
+                   Grid.Column="2"
+                   Foreground="Black"
+                   FontSize="28"
+                   Margin="2" />
 
-        <TextBlock Text="{Binding Network.LastHost}" 
+        <!-- Last Host -->
+        <TextBlock Text="Letzter Host: " 
                    Grid.Row="6"
                    Grid.Column="1"
                    Foreground="Black"
-                   FontSize="28"/>
+                   FontSize="28"
+                   Margin="2" />
+        <TextBlock Text="{Binding Network.LastHost}" 
+                   Grid.Row="6"
+                   Grid.Column="2"
+                   Foreground="Black"
+                   FontSize="28"
+                   Margin="2" />
 
-        <TextBlock Text="{Binding Network.NetworkId}" 
+        <!-- Net Id -->
+        <TextBlock Text="Netzwerk ID:" 
                    Grid.Row="7"
                    Grid.Column="1"
                    Foreground="Black"
-                   FontSize="28"/>
-        
-        <TextBlock Text="{Binding Network.NumberOfHosts}" 
+                   FontSize="28"
+                   Margin="2" />
+        <TextBlock Text="{Binding Network.NetworkId}" 
+                   Grid.Row="7"
+                   Grid.Column="2"
+                   Foreground="Black"
+                   FontSize="28"
+                   Margin="2" />
+
+        <!-- Number of Hosts -->
+        <TextBlock Text="Hosts max:" 
                    Grid.Row="8"
                    Grid.Column="1"
                    Foreground="Black"
-                   FontSize="28"/>
-
-
+                   FontSize="28"
+                   Margin="2" />
+        <TextBlock Text="{Binding Network.NumberOfHosts}" 
+                   Grid.Row="8"
+                   Grid.Column="2"
+                   Foreground="Black"
+                   FontSize="28"
+                   Margin="2" />
     </Grid>
 </UserControl>
