@@ -18,4 +18,9 @@ public abstract class BaseAddress
         }
         return result;
     }
+
+    public override string ToString()
+    {
+        return $"{Octets[0]}.{Octets[1]}.{Octets[2]}.{Octets[3]}";
+    }
 }
