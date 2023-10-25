@@ -36,7 +36,7 @@ public class IpCalculatorViewModel : ObservableObject
             }
             catch (Exception)
             {
-                Warning = "Inkorrekte Ip Adresse";
+                Warning = "Achtung! Ungültige IP Adresse.";
             }
             OnPropertyChanged();
         }
@@ -55,11 +55,11 @@ public class IpCalculatorViewModel : ObservableObject
                 Network = new Network(new IpAddress(IpAddress), new SubnetMask(SubnetMask));
                 CidrSuffix = Network.SubnetMask.CidrSuffix;
                 _snmWarning = false;
-                if (!_snmWarning && !_ipWarning) _warning = "";
+                if (!_snmWarning && !_ipWarning) Warning = "";
             }
             catch (Exception)
             {
-                Warning += "Achtung! Format der Subnetzmaske inkorrekt";
+                Warning += "Achtung! Ungültige Subnetzmaske";
             }
             OnPropertyChanged(); 
         }

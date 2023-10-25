@@ -15,8 +15,8 @@
     <Grid Background="White" Margin="0,2,0,-2" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="40" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="40" />
         </Grid.ColumnDefinitions>
@@ -49,7 +49,8 @@
                  Grid.Column="1"
                  Foreground="Black"
                  FontSize="28" 
-                 Margin="2"/>
+                 Margin="2"
+                 VerticalAlignment="Center"/>
         <Grid Grid.Row="1"
               Grid.Column="2">
             <Grid.ColumnDefinitions>
@@ -67,19 +68,23 @@
                      Grid.Column="0"
                      Foreground="Black"
                      FontSize="28" 
-                     Margin="2,2,2,2" Grid.ColumnSpan="2"/>
+                     Margin="2,2,2,2" 
+                     Grid.ColumnSpan="2"
+                     VerticalAlignment="Center"/>
             <TextBlock Text="/" 
                        Grid.Row="0"
                        Grid.Column="2"
                        Foreground="Black"
                        FontSize="28"
-                       Margin="2,2,2,2"/>
+                       Margin="2,2,2,2"
+                       VerticalAlignment="Center"/>
             <TextBox Text="{Binding CidrSuffix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      Grid.Row="0"
                      Grid.Column="3"
                      Foreground="Black"
                      FontSize="28" 
-                     Margin="2,2,2,2"/>
+                     Margin="2,2,2,2"
+                     VerticalAlignment="Center"/>
         </Grid>
 
         <!-- Subnetmask -->
@@ -88,7 +93,8 @@
                  Grid.Column="1"
                  Foreground="Black"
                  FontSize="28"
-                 Margin="2" />
+                 Margin="2" 
+                 VerticalAlignment="Center"/>
         <TextBox Text="{Binding SubnetMask, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                  Grid.Row="2"
                  Grid.Column="2"
