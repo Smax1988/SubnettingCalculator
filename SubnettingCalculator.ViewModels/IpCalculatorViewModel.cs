@@ -9,9 +9,10 @@ public class IpCalculatorViewModel : ObservableObject
     private bool _ipWarning = false;
     private bool _sfxWarning = false;
     private string _warning = string.Empty;
-    private int _cidrSuffix;
+
     private string _ipAddress;
     private string _subnetMask;
+    private int _cidrSuffix;
     private Network _network;
 
 
@@ -89,7 +90,7 @@ public class IpCalculatorViewModel : ObservableObject
 
             try
             {
-                Network = new Network(new IpAddress(_ipAddress), new SubnetMask(_cidrSuffix));
+                Network = new Network(new IpAddress(IpAddress), new SubnetMask(CidrSuffix));
                 SubnetMask = Network.SubnetMask.ToString();
                 _sfxWarning = false;
             }
