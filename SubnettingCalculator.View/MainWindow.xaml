@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:SubnettingCalculator.View"
         xmlns:viewModel="clr-namespace:SubnettingCalculator.ViewModels;assembly=SubnettingCalculator.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        Title="MainWindow"
+        WindowState="Maximized">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
