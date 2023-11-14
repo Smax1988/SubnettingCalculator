@@ -107,21 +107,20 @@
                  Margin="2"
                  VerticalAlignment="Center" />
 
-            <!-- Broadcast Address -->
-            <TextBlock Text="Broadcast:" 
+            <!-- Net Id -->
+            <TextBlock Text="Netzwerk ID:" 
                    Grid.Row="3"
                    Grid.Column="1"
                    Foreground="Black"
                    FontSize="28"
                    Margin="2" />
-
-            <TextBlock Text="{Binding Network.BroadCastAddress}" 
+            <TextBlock Text="{Binding Network.NetworkId}" 
                    Grid.Row="3"
                    Grid.Column="2"
                    Foreground="Black"
                    FontSize="28"
                    Margin="2" />
-
+            
             <!-- First Host -->
             <TextBlock Text="Erster Host:"
                    Grid.Row="4"
@@ -150,14 +149,15 @@
                    FontSize="28"
                    Margin="2" />
 
-            <!-- Net Id -->
-            <TextBlock Text="Netzwerk ID:" 
+            <!-- Broadcast Address -->
+            <TextBlock Text="Broadcast:" 
                    Grid.Row="6"
                    Grid.Column="1"
                    Foreground="Black"
                    FontSize="28"
                    Margin="2" />
-            <TextBlock Text="{Binding Network.NetworkId}" 
+
+            <TextBlock Text="{Binding Network.BroadCastAddress}" 
                    Grid.Row="6"
                    Grid.Column="2"
                    Foreground="Black"
